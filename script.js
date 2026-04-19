@@ -652,7 +652,38 @@ img.addEventListener("wheel", e => {
   img.style.transform = `scale(${scale})`;
 }, { passive: false });
 
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let translateX = 0;
+let translateY = 0;
 
+img.addEventListener("mousedown", e => {
+  if (scale <= 1) return; // pan solo se zoomato
+  e.preventDefault();
+
+  isDragging = true;
+  img.classList.add("dragging");
+
+  startX = e.clientX - translateX;
+  startY = e.clientY - translateY;
+});
+
+document.addEventListener("mousemove", e => {
+  if (!isDragging) return;
+
+  translateX = e.clientX - startX;
+  translateY = e.clientY - startY;
+
+  img.style.transform =
+    `scale(${scale}) translate(${translateX / scale}px, ${translateY / scale}px)`;
+});
+
+document.addEventListener("mouseup", () => {
+  if (!isDragging) return;
+  isDragging = false;
+  img.classList.remove("dragging");
+});
 
     img.addEventListener("click", () => {
   img.classList.toggle("zoomed");
@@ -665,7 +696,7 @@ img.addEventListener("wheel", e => {
     container.appendChild(figure);
   });
 
-  /* fine zoom*/
+  /* fine zoom */
 }
 
 
