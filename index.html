@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+  <title>Inferno I – Edizione Critica Digitale</title>
+
+  <!-- Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS separato -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Riferimento formale al testo dell’edizione -->
+  <link rel="alternate"
+        type="application/xml"
+        title="Edizione TEI XML"
+        href="edizione.xml">
+</head>
+
+<body>
+
+<header class="edition-header">
+  <h1 class="edition-title"></h1>
+</header>
+
+<nav class="paracontent-nav">
+  <button data-panel="intro">Introduzione</button>
+  <button data-panel="witnesses">Testimoni</button>
+  <button data-panel="text-note">Nota al testo</button>
+  <div class="nav-sep"></div>
+  <button data-panel="view-variants">Filtro Apparato</button>
+  <button data-panel="filter-witnesses">Filtro Testimoni</button>
+  <div class="nav-sep"></div>
+  <button id="toggle-translation">Traduzione</button>
+  <button id="toggle-facsimile">Facsimile</button>
+</nav>
+
+<main class="edition-layout">
+  <section id="text" class="edition-text"></section>
+
+
+<section id="facsimile" class="edition-text translation hidden">
+  <div id="facsimile-toggle-internal" class="close">✕</div>
+  <select id="facsimile-selector"></select>
+  <div id="mirador-viewer"></div>
+</section>
+
+
+<section id="translation" class="edition-text translation hidden">
+  <!-- PATCH: toggle interno chiusura traduzione -->
+<div id="translation-toggle-internal" class="close">✕</div>
+<!-- FINE PATCH -->
+
+  </section>
+
+
+  <aside id="apparatus-aside" class="edition-apparatus">
+    <div id="apparatus-section">
+    <h2>Apparato critico</h2>
+    <div id="apparatus"></div>
+    </div>
+
+    <div id="notes-section">
+      <h2>Note di commento</h2>
+      <div id="notes"></div>
+    </div>
+  </aside>
+</main>
+
+<!-- PANNELLI MODALI -->
+
+<div id="panel-intro" class="panel hidden">
+  <div class="close">✕</div>
+  <h2>Introduzione</h2>
+  <p>
+    Questa edizione digitale dell'Inferno I mira a restituire la complessità
+    della tradizione manoscritta attraverso un apparato critico interattivo.
+  </p>
+</div>
+
+<div id="panel-witnesses" class="panel hidden">
+  <div class="close">✕</div>
+  <h2>Testimoni</h2>
+  <div id="witness-content"></div>
+</div>
+
+<div id="panel-text-note" class="panel hidden">
+  <div class="close">✕</div>
+  <h2>Nota al testo</h2>
+  <p>
+    I lemmi ricostruiti (congetture) sono segnalati nel testo tra parentesi
+    angolari e distinti graficamente nel relativo apparato.
+  </p>
+</div>
+
+<div id="panel-filter-witnesses" class="panel hidden">
+  <div class="close">✕</div>
+  <h2>Filtra Testimoni in Apparato</h2>
+  <div id="witness-checkboxes"></div>
+</div>
+
+<div id="panel-view-variants" class="panel hidden">
+  <div class="close">✕</div>
+  <h2>Filtro Tipologia Varianti</h2>
+  <label class="filter-option">
+    <input type="checkbox" data-filter-type="substantive" checked>
+    Mostra varianti sostanziali
+  </label>
+  <label class="filter-option">
+    <input type="checkbox" data-filter-type="orthographic" checked>
+    Mostra varianti ortografiche
+  </label>
+   <label class="filter-option">
+    <input type="checkbox" data-filter-type="note" checked>
+    Mostra note di commento
+  </label>
+</div>
+
+<!-- JavaScript separato -->
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+      <title>Inferno, I</title>
+      <author>Dante Alighieri</author>
+      </titleStmt>
+      <sourceDesc>
+        <listWit>
+          <witness xml:id="A">Codice A</witness>
+          <witness xml:id="B">Codice B</witness>
+          <witness xml:id="C">Codice C</witness>
+        </listWit>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+
+
+
+<facsimile>
+  <surface xml:id="A_f1" corresp="#A" n="1">
+    <graphic url="https://gallica.bnf.fr/ark:/12148/btv1b52507464j/f9.highres" mimeType="image/jpeg"/>
+  </surface>
+
+  <surface xml:id="A_f2" corresp="#A" n="2">
+    <graphic url="https://gallica.bnf.fr/ark:/12148/btv1b52507464j/f10.highres" mimeType="image/jpeg"/>
+  </surface>
+
+  <surface xml:id="B_f1" corresp="#B" n="1">
+    <graphic url="https://www.imagesonline.bl.uk/cdn/britishlibrary/previews/554/75791f4ff631d0c6e31ce501d7255e49/35/332d9e790022b85ca661d70dacec3c8f/166085.jpg" mimeType="image/jpeg"/>
+  </surface>
+
+  <surface xml:id="B_f2" corresp="#B" n="2">
+    <graphic url="https://www.imagesonline.bl.uk/cdn/britishlibrary/previews/554/75791f4ff631d0c6e31ce501d7255e49/35/332d9e790022b85ca661d70dacec3c8f/166085.jpg" mimeType="image/jpeg"/>
+  </surface>
+</facsimile>
+
+
+
+
+  <text>
+
+
+<front>
+
+  <div type="introduction">
+    <head>Introduzione</head>
+    <p>
+      Questo lavoro presenta un’edizione critica del testo,
+      basata sui testimoni A e B.
+    </p>
+  </div>
+
+
+
+  <div type="editorialNote">
+    <head>Nota al testo</head>
+    <p>
+      Il testo base è il testimone A.
+    </p>
+  </div>
+
+  <div type="criteria">
+    <head>Criteri editoriali</head>
+    <p>
+      Le varianti sono segnalate in apparato con note numerate.
+    </p>
+  </div>
+
+</front>
+
+
+    <body>
+      <div type="edition">
+        <lg>
+          <l n="1">
+            Nel <app xml:id="v1a">
+              <lem wit="#A">mezzo</lem>
+              <rdg wit="#B">mozzo</rdg>
+              <rdg wit="#C" type="orthographic">mezo</rdg>
+            </app>
+            del cammin di nostra 
+            <app xml:id="v1b">
+              <lem wit="#A">vita</lem>
+              <rdg wit="#B">strada</rdg>
+              <rdg wit="#C" type="orthographic">uida</rdg>
+            </app>,
+          </l>
+          <l n="2">
+            mi ritrovai per una 
+            <app xml:id="v2">
+              <lem wit="#A">selva</lem>
+              <rdg wit="#B">foresta</rdg>
+            </app> oscura.
+          </l>
+        </lg>
+        <lg>
+          <l n="3">
+            Nel mezzo del cammin di nostra 
+            <app xml:id="v3">
+              <lem wit="#A">vita</lem>
+              <rdg wit="#B">strada</rdg>
+            </app>,
+          </l>
+          <l n="4">
+            mi ritrovai per una 
+            <app xml:id="v4">
+              <lem wit="#A">selva</lem>
+              <rdg wit="#B">foresta</rdg>
+            </app> oscura.
+          </l>
+        </lg>
+
+        <lg>
+          <l n="5">
+            Nel mezzo del cammin di nostra 
+            <app xml:id="v5">
+              <lem wit="#A">vita</lem>
+              <rdg wit="#B">strada</rdg>
+            </app>,
+          </l>
+          <l n="6">
+            mi ritrovai per una 
+            <app xml:id="v6">
+              <lem wit="#A">selva</lem>
+              <rdg wit="#B #C">foresta</rdg>
+            </app> oscura.
+          </l>
+        </lg>
+        <lg>
+          <l n="7">
+            Nel mezzo del cammin di nostra 
+            <app xml:id="v7">
+              <lem wit="#A">vita</lem>
+              <rdg wit="#B">strada</rdg>
+            </app>,
+          </l>
+          <l n="8">
+            mi ritrovai per una 
+            <app xml:id="v8">
+              <lem type="conjecture">selva</lem>
+              <rdg wit="#A #C"></rdg>
+              <rdg wit="#B">foresta</rdg>
+            </app> oscura.
+          </l>
+        </lg>
+        <lg>
+          <l n="9">
+            Nel mezzo del cammin di nostra 
+            <app xml:id="v9">
+              <lem wit="#A">vita</lem>
+              <rdg wit="#B">strada</rdg>
+              <rdg wit="#C">strida</rdg>
+            </app>,
+          </l>
+          <l n="10">
+            mi ritrovai per una 
+            <app xml:id="v10">
+              <lem wit="#A">selva</lem>
+              <rdg wit="#B">foresta</rdg>
+            </app> oscura.
+          </l>
+        </lg>
+   <lg>
+          <l n="11">
+            Nel mezzo del cammin di nostra vita
+          </l>
+          <l n="12">  mi ritrovai per una 
+              <app xml:id="v12">
+                <lem wit="#A">selva</lem>
+                <rdg wit="#B">foresta</rdg>
+              </app> 
+  <seg xml:id="n3">oscura</seg>. </l>
+        </lg>
+        <note target="#v1b">Nota al verso 1: "vita" è lezione vulgata.</note>
+        <note target="#v6">Nota al verso 2: "selva" come allegoria del peccato.</note>
+        <note target="#n3">Nota di commento a "oscura".</note>
+      </div>
+    </body>
+  </text>
+</TEI>
