@@ -1,0 +1,375 @@
+:root {
+  --bg: #fdfcf8;
+  --ink: #1a1a1a;
+  --muted: #666;
+  --rule: #d6d6d6;
+  --highlight-bg: rgba(212, 186, 128, 0.4);
+  --serif: 'Source Serif 4', serif;
+  --sans: 'Source Sans 3', sans-serif;
+  --accent: #884444;
+  --line-num-color: rgba(136, 68, 68, 0.6);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.edition-header {
+  padding: 1.2rem 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  background: white;
+}
+
+.edition-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+
+.edition-title-text {
+  font-style: italic;
+}
+
+.edition-author {
+  font-style: normal;
+}
+
+
+.paracontent-nav {
+  padding: 0.6rem 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  background: #fafafa;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.paracontent-nav button {
+  background: none;
+  border: none;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.paracontent-nav button:hover {
+  color: var(--ink);
+}
+
+.nav-sep {
+  width: 1px;
+  height: 1.2rem;
+  background: var(--rule);
+}
+
+.edition-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.edition-text {
+  flex: 1.3;
+  padding: 3rem 4rem;
+  overflow-y: auto;
+}
+
+.line-group {
+  margin-bottom: 0.5rem;
+}
+
+.line-num {
+  display: inline-block;
+  width: 30px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--line-num-color);
+  margin-right: 15px;
+  text-align: right;
+  user-select: none;
+}
+
+/* Lemmi critici: sottolineatura ripristinata per tutti */
+.lem {
+  border-bottom: 1px dotted #999;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Lemma ricostruito (Congettura) */
+.lem.conjecture {
+  font-style: normal;
+}
+
+.lem.conjecture::before {
+  content: "<";
+  color: var(--ink);
+}
+
+.lem.conjecture::after {
+  content: ">";
+  color: var(--ink);
+}
+
+/* Sistema di evidenziazione giallo (Highlight) */
+.highlight {
+  background: var(--highlight-bg) !important;
+  outline: none !important;
+  border-radius: 2px;
+}
+
+.note-marker {
+  font-family: var(--serif);
+  font-size: 0.7rem;
+  vertical-align: super;
+  color: var(--accent);
+  margin-left: 2px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.edition-apparatus {
+  flex: 0.8;
+  border-left: 1px solid var(--rule);
+  background: #f7f6f3;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.edition-apparatus h2 {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 4px;
+}
+
+.apparatus-entry {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 1.4;
+  transition: background 0.2s;
+}
+
+.app-line-ref {
+  font-weight: bold;
+  margin-right: 6px;
+  color: var(--accent);
+}
+
+.app-lemma {
+  font-style: normal;
+}
+
+.rdg-item {
+  margin-left: 4px;
+}
+
+.rdg-item em {
+  font-size: 0.8rem;
+  color: inherit;
+  font-style: normal;
+  font-variant: small-caps;
+  margin-left: 2px;
+}
+
+.note-entry {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 1.5;
+  transition: background 0.2s;
+}
+
+.note-num-label {
+  font-family: var(--serif);
+  font-weight: bold;
+  color: var(--accent);
+  margin-right: 8px;
+  font-size: 0.75rem;
+  vertical-align: super;
+}
+
+.panel {
+  position: fixed;
+  top: 15%;
+  left: 15%;
+  transform: none;
+  width: 55%;
+  max-width: 620px;
+  background: white;
+  padding: 1.8rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  z-index: 1000;
+  border-radius: 10px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.panel h2 {
+  font-family: var(--sans);
+  margin-top: 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.panel p {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+#witness-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.translation {
+  background: #fbfbf9;
+  border-left: 1px dashed var(--rule);
+  font-style: italic;
+  color: #444;
+}
+
+
+#translation {
+  position: relative;
+}
+
+#translation .translation-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+
+#translation .line-group:first-child {
+  margin-top: 2.5rem;
+}
+
+
+
+.paracontent-nav button.active {
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+/* ===== PATCH: X tonda e non corsiva ===== */
+
+.close {
+  font-style: normal;        /* rimuove corsivo */
+  font-family: var(--sans);  /* coerenza UI, opzionale ma consigliata */
+
+  display: inline-block;
+}
+
+
+#facsimile {
+  position: relative;
+}
+
+#facsimile .close {
+  position: sticky;
+  top: 0.5rem;
+  float: right;
+  transform: translateX(0.5rem);
+}
+#facsimile-selector {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.85rem;
+  color: #444;
+
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+
+  padding: 0.2rem 0.4rem;
+  margin: 0 0 0.75rem 0;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* === ZOOM FACSIMILE === */
+#mirador-viewer img {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+#mirador-viewer img.zoomed {
+  transform: scale(2);
+  cursor: zoom-out;
+}
+
+#mirador-viewer img {
+  transform-origin: center center;
+  transition: transform 0.1s ease;
+  cursor: zoom-in;
+}
+
+#mirador-viewer img {
+  cursor: grab;
+}
+
+#mirador-viewer img.dragging {
+  cursor: grabbing;
+}
